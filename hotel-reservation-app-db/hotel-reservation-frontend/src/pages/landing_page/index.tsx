@@ -22,7 +22,12 @@ export default function LandingPage() {
       <Typography mb={8} textAlign="center" variant="h2" color="white">
         Enjoy convenience
       </Typography>
-      <Button onClick={() => { window.location.href = "/auth/login"; }} variant="contained" color="secondary" style={{ borderRadius: 32, textTransform: "none", height: 64, width: 200, fontSize: 18, }}>Get Started...</Button>
+      <Button onClick={() => 
+        { window.location.href = "/auth/login"; }} 
+        variant="contained" 
+        color="secondary" 
+        style={{ borderRadius: 32, textTransform: "none", height: 64, width: 200, fontSize: 18, }}
+        >Get Started...</Button>
     </Box>
   );
 }

@@ -10,3 +10,7 @@ endpoints:
         - Project
         - Public
       schemaFilePath: openapi.yaml
+dependencies:
+    connectionReferences:
+    - name: Hotel Reservation Connection
+      resourceRef: service:/luxuryhotels/hotel-reservation-service/v1/0e08a/PUBLIC

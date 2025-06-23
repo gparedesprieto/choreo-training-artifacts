@@ -11,17 +11,6 @@ endpoints:
         - Public
       schemaFilePath: openapi.yaml
 dependencies:
-    serviceReferences:
-    - name: choreo:///asix/luxuryhotels/hotel-reservation-service/0e08a/v1/PUBLIC
-      connectionConfig: 01f04b7d-c49b-1698-9708-3cf7bae04981
-      env:
-      - from: ServiceURL
-        to: CHOREO_HOTEL_RESERVATION_CONNECTION_SERVICEURL
-      - from: ConsumerKey
-        to: CHOREO_HOTEL_RESERVATION_CONNECTION_CONSUMERKEY
-      - from: ConsumerSecret
-        to: CHOREO_HOTEL_RESERVATION_CONNECTION_CONSUMERSECRET
-      - from: TokenURL
-        to: CHOREO_HOTEL_RESERVATION_CONNECTION_TOKENURL
-      - from: ChoreoAPIKey
-        to: CHOREO_HOTEL_RESERVATION_CONNECTION_CHOREOAPIKEY
+    connectionReferences:
+    - name: Hotel Reservation Connection
+      resourceRef: service:/luxuryhotels/hotel-reservation-service/v1/0e08a/PUBLIC

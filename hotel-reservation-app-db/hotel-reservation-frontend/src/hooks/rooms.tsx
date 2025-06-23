@@ -21,7 +21,8 @@ export function useGetRooms() {
       params: {
         checkinDate: checkIn,
         checkoutDate: checkOut,
-        guestCapacity
+        guestCapacity,
+        choreoApiKey: configs.choreoApiKey
       },
       headers: {
         'Choreo-API-Key': `${configs.choreoApiKey}`

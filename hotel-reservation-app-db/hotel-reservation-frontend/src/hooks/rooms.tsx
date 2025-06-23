@@ -3,6 +3,7 @@ import { AxiosResponse } from "axios";
 import { RoomType } from "../types/generated";
 import { performRequestWithRetry } from "../api/retry";
 import { apiUrl } from "../api/config";
+import { configs } from "../api/configs";
 
 export function useGetRooms() {
   const [rooms, setRooms] = useState<RoomType[]>([]);
@@ -23,6 +24,9 @@ export function useGetRooms() {
         guestCapacity
       },
     };
+
+    console.dir(configs)
+
     try {
       const response = await performRequestWithRetry(
         `${apiUrl}/roomTypes`,

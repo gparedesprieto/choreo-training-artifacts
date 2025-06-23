@@ -1,0 +1,7 @@
+export const configs = {
+  serviceUrl: process.env.CHOREO_HOTEL_RESERVATION_CONNECTION_SERVICEURL || '',
+  consumerKey: process.env.CHOREO_HOTEL_RESERVATION_CONNECTION_CONSUMERKEY || '',
+  consumerSecret: process.env.CHOREO_HOTEL_RESERVATION_CONNECTION_CONSUMERSECRET || '',
+  tokenUrl: process.env.CHOREO_HOTEL_RESERVATION_CONNECTION_TOKENURL || '',
+  choreoApiKey: process.env.CHOREO_HOTEL_RESERVATION_CONNECTION_CHOREOAPIKEY || '',
+};

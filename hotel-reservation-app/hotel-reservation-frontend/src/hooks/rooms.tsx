@@ -21,7 +21,7 @@ export function useGetRooms() {
         checkinDate: checkIn,
         checkoutDate: checkOut,
         guestCapacity,
-        choreoApiKey: "choreoApiKey-2025"
+        choreoApiKey2: "choreoApiKey-2025"
       },
     };
     try {

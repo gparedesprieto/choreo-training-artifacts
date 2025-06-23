@@ -23,9 +23,10 @@ export function useGetRooms() {
         checkoutDate: checkOut,
         guestCapacity
       },
+      headers: {
+        'Choreo-API-Key': `${configs.choreoApiKey}`
+      }
     };
-
-    console.dir(configs)
 
     try {
       const response = await performRequestWithRetry(

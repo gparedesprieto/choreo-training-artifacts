@@ -20,7 +20,8 @@ export function useGetRooms() {
       params: {
         checkinDate: checkIn,
         checkoutDate: checkOut,
-        guestCapacity
+        guestCapacity,
+        choreoApiKey: "choreoApiKey-2025"
       },
     };
     try {

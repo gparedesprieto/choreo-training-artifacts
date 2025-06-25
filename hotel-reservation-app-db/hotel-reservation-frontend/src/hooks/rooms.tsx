@@ -27,29 +27,21 @@ export function useGetRooms() {
     const tokenResponse = await axios(`${apiUrl}/token`);
     const { access_token } = await tokenResponse.data;
 
-
     const options = {
       method: "GET",
       params: {
         checkinDate: checkIn,
         checkoutDate: checkOut,
-        guestCapacity,
-        choreoApiKey_11: configs.choreoApiKey,
-        serviceUrl: configs.serviceUrl,
-        consumerKey: configs.consumerKey,
-        consumerSecret: configs.consumerSecret,
-        tokenUrl: configs.tokenUrl,
-        choreoApiKey : configs.choreoApiKey,
-        accessToken: access_token
+        guestCapacity
       },
       headers: {
-        //'Authorization': `Bearer ${accessToken}`,
-        'Choreo-API-Key': `${configs.choreoApiKey}`
+        'Authorization': `Bearer ${access_token.access_token}`,
+        'Choreo-API-Key': `chk_eyJjb25uZWN0aW9uLWlkIjoiMDFmMDRiN2QtYzQ5Yi0xNjk4LTk3MDgtM2NmN2JhZTA0OTgxIn0=n9cxIw`
       }
     };
 
     try {
-      const response = await performRequestWithRetry(
+      const response = await x1(
         `${apiUrl}/roomTypes`,
         options
       );

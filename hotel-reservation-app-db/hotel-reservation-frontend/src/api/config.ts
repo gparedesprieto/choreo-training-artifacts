@@ -2,6 +2,7 @@ declare global {
   interface Window {
     configs: {
       apiUrl: string;
+      serviceurl: string;
     };
   }
 }

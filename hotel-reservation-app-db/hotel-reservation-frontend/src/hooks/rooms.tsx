@@ -15,9 +15,9 @@ export function useGetRooms() {
 
  const getClientCredentials = oauth.clientCredentials(
     axios.create(),
-    configs.tokenUrl,
-    configs.consumerKey,
-    configs.consumerSecret
+    process.env.CHOREO_HOTEL_RESERVATION_CONNECTION_TOKENURL!,
+    process.env.CHOREO_HOTEL_RESERVATION_CONNECTION_CONSUMERKEY!,
+    process.env.CHOREO_HOTEL_RESERVATION_CONNECTION_CONSUMERSECRET!
   );
   
   const fetchRooms = async (

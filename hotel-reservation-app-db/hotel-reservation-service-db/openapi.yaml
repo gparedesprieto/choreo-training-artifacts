@@ -164,6 +164,20 @@ paths:
           description: NotFound
       security:
       - default: []
+  "/token123":
+    get:
+      operationId: token123
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/Reservation"
+      security:
+      - default: []
 components:
   schemas:
     ErrorPayload:

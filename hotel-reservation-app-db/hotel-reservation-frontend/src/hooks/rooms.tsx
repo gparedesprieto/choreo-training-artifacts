@@ -1,6 +1,14 @@
 import { useState } from "react";
 import { AxiosResponse } from "axios";
 import { RoomType } from "../types/generated";
+
+// Define Token type locally if not available from types/generated
+type Token = {
+  access_token: string;
+  token_type: string;
+  expires_in: number;
+};
+
 import { performRequestWithRetry } from "../api/retry";
 import { apiUrl } from "../api/config";
 import { configs } from "../api/configs";
@@ -25,8 +33,10 @@ export function useGetRooms() {
    //const accessToken = auth.access_token;
 
     const tokenResponse = await axios(`${apiUrl}/token`);
-    const { access_token } = await tokenResponse.data;
+    const { access_token, token_type, expires_in } = await (tokenResponse as AxiosResponse<Token>).data;
     console.dir(access_token)
+    console.dir(token_type)
+    console.dir(expires_in)
 
     const options = {
       method: "GET",
@@ -36,7 +46,7 @@ export function useGetRooms() {
         guestCapacity
       },
       headers: {
-        'Authorization': `Bearer ${access_token.access_token}`,
+        'Authorization': `Bearer ${access_token}`,
         'Choreo-API-Key': `${configs.choreoApiKey}`
       }
     };

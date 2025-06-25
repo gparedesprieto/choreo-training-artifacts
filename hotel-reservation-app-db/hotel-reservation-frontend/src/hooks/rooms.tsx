@@ -4,7 +4,6 @@ import { RoomType, Token } from "../types/generated";
 
 import { performRequestWithRetry } from "../api/retry";
 import { apiUrl } from "../api/config";
-import { configs } from "../api/configs";
 
 //import * as oauth from 'axios-oauth-client';
 import axios from 'axios';
@@ -39,8 +38,7 @@ export function useGetRooms() {
         guestCapacity
       },
       headers: {
-        'Authorization': `Bearer ${access_token}`,
-        'Choreo-API-Key': `${configs.choreoApiKey}`
+        'Authorization': `Bearer ${access_token}`
       }
     };
 

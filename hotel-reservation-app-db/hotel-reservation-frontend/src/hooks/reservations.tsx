@@ -9,7 +9,6 @@ import {
 import { performRequestWithRetry } from "../api/retry";
 import { apiUrl } from "../api/config";
 import axios from 'axios';
-import { configs } from "../api/configs";
 
 
 export function useReserveRoom() {
@@ -30,8 +29,7 @@ export function useReserveRoom() {
       method: "POST",
       data: request,
       headers: {
-        'Authorization': `Bearer ${access_token}`,
-        'Choreo-API-Key': `${configs.choreoApiKey}`
+        'Authorization': `Bearer ${access_token}`
       }
     };
     try {
@@ -66,8 +64,7 @@ export function useGetReservations() {
     const options = {
       method: "GET",
       headers: {
-        'Authorization': `Bearer ${access_token}`,
-        'Choreo-API-Key': `${configs.choreoApiKey}`
+        'Authorization': `Bearer ${access_token}`
       }
     };
     try {
@@ -102,8 +99,7 @@ export function useDeleteReservation() {
     const options = {
       method: "DELETE",
       headers: {
-        'Authorization': `Bearer ${access_token}`,
-        'Choreo-API-Key': `${configs.choreoApiKey}`
+        'Authorization': `Bearer ${access_token}`
       }
     };
     try {
@@ -142,8 +138,7 @@ export function useUpdateReservation() {
       method: "PUT",
       data: updateRequest,
       headers: {
-        'Authorization': `Bearer ${access_token}`,
-        'Choreo-API-Key': `${configs.choreoApiKey}`
+        'Authorization': `Bearer ${access_token}`
       }
     };
     try {

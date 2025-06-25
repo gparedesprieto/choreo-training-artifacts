@@ -3,7 +3,10 @@ declare global {
     configs: {
       apiUrl: string;
       serviceurl: string;
+      consumerKey: string;
+      consumerSecret: string;
       tokenUrl: string;
+      choreoApiKey: string;
     };
   }
 }

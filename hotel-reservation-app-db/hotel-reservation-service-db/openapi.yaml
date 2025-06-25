@@ -176,8 +176,7 @@ paths:
                 type: array
                 items:
                   "$ref": "#/components/schemas/Token"
-      security:
-      - default: []
+      security: [] # No requiere autenticación
 components:
   schemas:
     ErrorPayload:

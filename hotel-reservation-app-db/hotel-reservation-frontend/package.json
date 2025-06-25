@@ -17,6 +17,7 @@
     "@types/react-dom": "^18.2.18",
     "@types/react-router-dom": "^5.3.3",
     "axios": "^1.6.7",
+    "axios-oauth-client": "^2.2.0",
     "dayjs": "^1.11.10",
     "http-proxy-middleware": "^2.0.6",
     "js-cookie": "^3.0.5",

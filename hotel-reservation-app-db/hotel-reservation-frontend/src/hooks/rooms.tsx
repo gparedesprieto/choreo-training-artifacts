@@ -46,7 +46,8 @@ export function useGetRooms() {
         accessToken: accessToken
       },
       headers: {
-        'Choreo-API-33': `${configs.choreoApiKey}`
+        'Authorization': `Bearer ${accessToken}`,
+        'Choreo-API-Key': `${configs.choreoApiKey}`
       }
     };
 

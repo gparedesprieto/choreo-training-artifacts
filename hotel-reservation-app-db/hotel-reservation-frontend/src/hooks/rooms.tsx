@@ -36,12 +36,12 @@ export function useGetRooms() {
       },
       headers: {
         'Authorization': `Bearer ${access_token.access_token}`,
-        'Choreo-API-Key': `chk_eyJjb25uZWN0aW9uLWlkIjoiMDFmMDRiN2QtYzQ5Yi0xNjk4LTk3MDgtM2NmN2JhZTA0OTgxIn0=n9cxIw`
+        'Choreo-API-Key': `${configs.choreoApiKey}`
       }
     };
 
     try {
-      const response = await x1(
+      const response = await performRequestWithRetry(
         `${apiUrl}/roomTypes`,
         options
       );

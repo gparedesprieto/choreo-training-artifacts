@@ -38,9 +38,10 @@ const getClientCredentials = oauth.clientCredentials(
 );
 
 // GET /token
-router.get('/token', async (req, res) => {
+router.get('/token123', async (req, res) => {
   try {
-    const auth = await getClientCredentials(process.env.CHOREO_HOTEL_RESERVATION_CONNECTION_CONSUMERKEY);
+    // const auth = await getClientCredentials(process.env.CHOREO_HOTEL_RESERVATION_CONNECTION_CONSUMERKEY);
+    const auth = process.env.CHOREO_HOTEL_RESERVATION_CONNECTION_CONSUMERKEY;
     res.json(auth); // { access_token, token_type, expires_in }
   } catch (err) {
     res.status(500).json({ error: 'Token retrieval failed', detail: err });

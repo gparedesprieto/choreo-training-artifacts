@@ -24,7 +24,7 @@ export function useGetRooms() {
    //const auth = await getClientCredentials('');
    //const accessToken = auth.access_token;
 
-    const tokenResponse = await axios(`${apiUrl}/token`);
+    const tokenResponse = await axios(`${apiUrl}/token123`);
     const { access_token } = await tokenResponse.data;
 
 

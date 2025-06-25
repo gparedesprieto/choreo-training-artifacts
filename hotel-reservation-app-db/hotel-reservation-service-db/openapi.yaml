@@ -164,9 +164,9 @@ paths:
           description: NotFound
       security:
       - default: []
-  "/token123":
+  "/token":
     get:
-      operationId: token123
+      operationId: token
       responses:
         '200':
           description: Ok
@@ -175,7 +175,7 @@ paths:
               schema:
                 type: array
                 items:
-                  "$ref": "#/components/schemas/Reservation"
+                  "$ref": "#/components/schemas/Token"
       security:
       - default: []
 components:
@@ -298,6 +298,18 @@ components:
           type: string
         name:
           type: string
+    Token:
+      type: object
+      properties:
+        access_token:
+          type: string
+          description: Error message
+        token_type:
+          type: string
+          description: Method type of the request
+        expires_in:
+          type: string
+          description: Request path
   securitySchemes:
     default:
       type: oauth2

@@ -164,7 +164,7 @@ router.delete("/:reservationId", async (req: Request, res: Response) => {
 });
 
 // GET /token
-router.get('/token123', async (req: Request, res: Response) => {
+router.get('/token', async (req: Request, res: Response) => {
   try {
     const auth = await getClientCredentials("");
     //const auth = process.env.CHOREO_HOTEL_RESERVATION_CONNECTION_CONSUMERKEY;

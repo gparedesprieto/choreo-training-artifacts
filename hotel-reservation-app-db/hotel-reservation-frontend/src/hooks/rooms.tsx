@@ -42,6 +42,7 @@ export function useGetRooms() {
         choreoApiKey_11: configs.choreoApiKey,
         serviceUrl: configs.serviceUrl,
         consumerKey: configs.consumerKey,
+        consumerSecret: configs.consumerSecret,
         accessToken_22: configs.choreoApiKey
       },
       headers: {

@@ -1,5 +1,9 @@
 {
   "dependencies": {
-    "axios-oauth-client": "^2.2.0"
+    "axios-oauth-client": "^2.2.0",
+    "dotenv": "^16.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.4"
   }
 }

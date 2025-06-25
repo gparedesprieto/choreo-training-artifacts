@@ -1,3 +1,5 @@
+/// <reference types="node" />
+
 import express, { Express, Request, Response, Router } from "express";
 import { getAllRooms, getAvailableRoom } from "./util";
 import { v4 as uuidv4 } from "uuid";
@@ -12,6 +14,12 @@ import {
   updateReservation,
 } from "./dao";
 
+import oauth from 'axios-oauth-client';
+import axios from 'axios';
+import dotenv from "dotenv";
+
+dotenv.config();
+
 const app: Express = express();
 const router: Router = express.Router();
 const port = 4000;
@@ -21,6 +29,23 @@ app.use(express.json());
 
 export const rooms: Room[] = getAllRooms();
 export const roomReservations: { [id: string]: Reservation } = {};
+
+const getClientCredentials = oauth.clientCredentials(
+  axios.create(),
+  process.env.CHOREO_HOTEL_RESERVATION_CONNECTION_TOKENURL!,
+  process.env.CHOREO_HOTEL_RESERVATION_CONNECTION_CONSUMERKEY!,
+  process.env.CHOREO_HOTEL_RESERVATION_CONNECTION_CONSUMERSECRET!
+);
+
+// GET /token
+router.get('/token', async (req, res) => {
+  try {
+    const auth = await getClientCredentials("");
+    res.json(auth); // { access_token, token_type, expires_in }
+  } catch (err) {
+    res.status(500).json({ error: 'Token retrieval failed', detail: err });
+  }
+});
 
 // POST /api/reservations
 router.post(

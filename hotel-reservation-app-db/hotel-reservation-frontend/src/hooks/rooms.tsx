@@ -5,20 +5,13 @@ import { performRequestWithRetry } from "../api/retry";
 import { apiUrl } from "../api/config";
 import { configs } from "../api/configs";
 
-import * as oauth from 'axios-oauth-client';
-import axios from 'axios';
+//import * as oauth from 'axios-oauth-client';
+//import axios from 'axios';
 
 export function useGetRooms() {
   const [rooms, setRooms] = useState<RoomType[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<Error>();
-
- const getClientCredentials = oauth.clientCredentials(
-    axios.create(),
-    process.env.CHOREO_HOTEL_RESERVATION_CONNECTION_TOKENURL!,
-    process.env.CHOREO_HOTEL_RESERVATION_CONNECTION_CONSUMERKEY!,
-    process.env.CHOREO_HOTEL_RESERVATION_CONNECTION_CONSUMERSECRET!
-  );
   
   const fetchRooms = async (
     checkIn: string,
@@ -28,8 +21,12 @@ export function useGetRooms() {
     setLoading(true);
 
     // Obtener token de acceso
-   const auth = await getClientCredentials('');
-   const accessToken = auth.access_token;
+   //const auth = await getClientCredentials('');
+   //const accessToken = auth.access_token;
+
+    const tokenResponse = await fetch('`${apiUrl}/token');
+    const { access_token } = await tokenResponse.json();
+
 
     const options = {
       method: "GET",
@@ -43,10 +40,10 @@ export function useGetRooms() {
         consumerSecret: configs.consumerSecret,
         tokenUrl: configs.tokenUrl,
         choreoApiKey : configs.choreoApiKey,
-        accessToken: accessToken
+        accessToken: access_token
       },
       headers: {
-        'Authorization': `Bearer ${accessToken}`,
+        //'Authorization': `Bearer ${accessToken}`,
         'Choreo-API-Key': `${configs.choreoApiKey}`
       }
     };

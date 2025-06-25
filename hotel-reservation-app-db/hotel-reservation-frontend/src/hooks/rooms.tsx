@@ -26,6 +26,7 @@ export function useGetRooms() {
 
     const tokenResponse = await axios(`${apiUrl}/token`);
     const { access_token } = await tokenResponse.data;
+    console.dir(access_token)
 
     const options = {
       method: "GET",

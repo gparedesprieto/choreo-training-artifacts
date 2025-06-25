@@ -37,16 +37,6 @@ const getClientCredentials = oauth.clientCredentials(
   process.env.CHOREO_HOTEL_RESERVATION_CONNECTION_CONSUMERSECRET!
 );
 
-// GET /token
-router.get('/token123', async (req, res) => {
-  try {
-    // const auth = await getClientCredentials(process.env.CHOREO_HOTEL_RESERVATION_CONNECTION_CONSUMERKEY);
-    const auth = process.env.CHOREO_HOTEL_RESERVATION_CONNECTION_CONSUMERKEY;
-    res.json(auth); // { access_token, token_type, expires_in }
-  } catch (err) {
-    res.status(500).json({ error: 'Token retrieval failed', detail: err });
-  }
-});
 
 // POST /api/reservations
 router.post(
@@ -170,6 +160,17 @@ router.delete("/:reservationId", async (req: Request, res: Response) => {
     res.sendStatus(200);
   } catch (error) {
     res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+// GET /token
+router.get('/token123', async (req: Request, res: Response) => {
+  try {
+    // const auth = await getClientCredentials(process.env.CHOREO_HOTEL_RESERVATION_CONNECTION_CONSUMERKEY);
+    const auth = process.env.CHOREO_HOTEL_RESERVATION_CONNECTION_CONSUMERKEY;
+    res.json(auth); // { access_token, token_type, expires_in }
+  } catch (err) {
+    res.status(500).json({ error: 'Token retrieval failed', detail: err });
   }
 });
 

@@ -41,8 +41,7 @@ paths:
             application/json:
               schema:
                 "$ref": "#/components/schemas/ErrorPayload"
-      security:
-      - default: []
+      security: [] # No requiere autenticación
   "/roomTypes":
     get:
       operationId: getRoomtypes
@@ -84,7 +83,7 @@ paths:
             application/json:
               schema:
                 "$ref": "#/components/schemas/ErrorPayload"
-      security: [] # No requiere autenticación|
+      security: [] # No requiere autenticación
   "/users/{userId}":
     get:
       operationId: getUsersUserid
@@ -105,8 +104,7 @@ paths:
                 type: array
                 items:
                   "$ref": "#/components/schemas/Reservation"
-      security:
-      - default: []
+      security: [] # No requiere autenticación
   "/{reservationId}":
     put:
       operationId: putReservationid
@@ -143,7 +141,7 @@ paths:
             application/json:
               schema:
                 "$ref": "#/components/schemas/ErrorPayload"
-      security: [] # No requiere autenticación|
+      security: [] # No requiere autenticación
     delete:
       operationId: deleteReservationid
       parameters:
@@ -160,8 +158,7 @@ paths:
           description: Ok
         '404':
           description: NotFound
-      security:
-      - default: []
+      security: [] # No requiere autenticación
   "/token":
     get:
       operationId: token

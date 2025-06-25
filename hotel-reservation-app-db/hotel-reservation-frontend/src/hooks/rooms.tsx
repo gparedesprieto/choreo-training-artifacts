@@ -39,12 +39,13 @@ export function useGetRooms() {
         checkinDate: checkIn,
         checkoutDate: checkOut,
         guestCapacity,
-        choreoApiKey_33: configs.choreoApiKey,
+        choreoApiKey_11: configs.choreoApiKey,
         serviceUrl: configs.serviceUrl,
-        accessToken2244: configs.choreoApiKey
+        consumerKey: configs.consumerKey,
+        accessToken_22: configs.choreoApiKey
       },
       headers: {
-        'Choreo-API-044': `${configs.choreoApiKey}`
+        'Choreo-API-33': `${configs.choreoApiKey}`
       }
     };
 

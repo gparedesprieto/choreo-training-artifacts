@@ -5,3 +5,4 @@ export * from './room';
 export * from './room-type';
 export * from './update-reservation-request';
 export * from './user';
+export * from './token';

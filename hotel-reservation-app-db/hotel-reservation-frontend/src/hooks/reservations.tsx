@@ -4,11 +4,13 @@ import {
   Reservation,
   ReservationRequest,
   UpdateReservationRequest,
+  Token
 } from "../types/generated";
 import { performRequestWithRetry } from "../api/retry";
 import { apiUrl } from "../api/config";
 import axios from 'axios';
 import { configs } from "../api/configs";
+
 
 export function useReserveRoom() {
   const [reservation, setReservation] = useState<Reservation>();

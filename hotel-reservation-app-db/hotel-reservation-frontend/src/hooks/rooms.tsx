@@ -1,13 +1,6 @@
 import { useState } from "react";
 import { AxiosResponse } from "axios";
-import { RoomType } from "../types/generated";
-
-// Define Token type locally if not available from types/generated
-type Token = {
-  access_token: string;
-  token_type: string;
-  expires_in: number;
-};
+import { RoomType, Token } from "../types/generated";
 
 import { performRequestWithRetry } from "../api/retry";
 import { apiUrl } from "../api/config";

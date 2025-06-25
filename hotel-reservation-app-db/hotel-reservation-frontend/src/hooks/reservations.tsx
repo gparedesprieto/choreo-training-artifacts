@@ -7,6 +7,8 @@ import {
 } from "../types/generated";
 import { performRequestWithRetry } from "../api/retry";
 import { apiUrl } from "../api/config";
+import axios from 'axios';
+import { configs } from "../api/configs";
 
 export function useReserveRoom() {
   const [reservation, setReservation] = useState<Reservation>();
@@ -15,9 +17,20 @@ export function useReserveRoom() {
 
   const reserveRoom = async (request: ReservationRequest): Promise<void> => {
     setLoading(true);
+
+    const tokenResponse = await axios(`${apiUrl}/token`);
+    const { access_token, token_type, expires_in } = await (tokenResponse as AxiosResponse<Token>).data;
+    console.dir(access_token)
+    console.dir(token_type)
+    console.dir(expires_in)
+
     const options = {
       method: "POST",
       data: request,
+      headers: {
+        'Authorization': `Bearer ${access_token}`,
+        'Choreo-API-Key': `${configs.choreoApiKey}`
+      }
     };
     try {
       const response = await performRequestWithRetry(

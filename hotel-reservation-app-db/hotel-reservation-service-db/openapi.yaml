@@ -84,8 +84,7 @@ paths:
             application/json:
               schema:
                 "$ref": "#/components/schemas/ErrorPayload"
-      security:
-      - oauth2: [read]
+      security: [] # No requiere autenticación|
   "/users/{userId}":
     get:
       operationId: getUsersUserid

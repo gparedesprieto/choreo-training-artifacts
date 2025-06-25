@@ -6,7 +6,7 @@ import { apiUrl } from "../api/config";
 import { configs } from "../api/configs";
 
 //import * as oauth from 'axios-oauth-client';
-//import axios from 'axios';
+import axios from 'axios';
 
 export function useGetRooms() {
   const [rooms, setRooms] = useState<RoomType[]>([]);
@@ -24,8 +24,8 @@ export function useGetRooms() {
    //const auth = await getClientCredentials('');
    //const accessToken = auth.access_token;
 
-    const tokenResponse = await fetch(`/api/reservations/token`);
-    const { access_token } = await tokenResponse.json();
+    const tokenResponse = await axios(`${apiUrl}/token`);
+    const { access_token } = await tokenResponse.data;
 
 
     const options = {

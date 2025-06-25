@@ -41,6 +41,7 @@ export function useGetRooms() {
         serviceUrl: configs.serviceUrl,
         consumerKey: configs.consumerKey,
         consumerSecret: configs.consumerSecret,
+        tokenUrl: configs.tokenUrl,
         choreoApiKey : configs.choreoApiKey,
         accessToken: accessToken
       },

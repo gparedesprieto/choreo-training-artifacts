@@ -56,8 +56,19 @@ export function useGetReservations() {
 
   const fetchReservations = async (userId: string): Promise<void> => {
     setLoading(true);
+
+    const tokenResponse = await axios(`${apiUrl}/token`);
+    const { access_token, token_type, expires_in } = await (tokenResponse as AxiosResponse<Token>).data;
+    console.dir(access_token)
+    console.dir(token_type)
+    console.dir(expires_in)
+
     const options = {
       method: "GET",
+      headers: {
+        'Authorization': `Bearer ${access_token}`,
+        'Choreo-API-Key': `${configs.choreoApiKey}`
+      }
     };
     try {
       const response = await performRequestWithRetry(
@@ -81,8 +92,19 @@ export function useDeleteReservation() {
 
   const deleteReservation = async (id: number): Promise<void> => {
     setDeleting(true);
+
+    const tokenResponse = await axios(`${apiUrl}/token`);
+    const { access_token, token_type, expires_in } = await (tokenResponse as AxiosResponse<Token>).data;
+    console.dir(access_token)
+    console.dir(token_type)
+    console.dir(expires_in)
+
     const options = {
       method: "DELETE",
+      headers: {
+        'Authorization': `Bearer ${access_token}`,
+        'Choreo-API-Key': `${configs.choreoApiKey}`
+      }
     };
     try {
       const response = await performRequestWithRetry(
@@ -109,9 +131,20 @@ export function useUpdateReservation() {
     updateRequest: UpdateReservationRequest
   ): Promise<void> => {
     setUpdating(true);
+
+    const tokenResponse = await axios(`${apiUrl}/token`);
+    const { access_token, token_type, expires_in } = await (tokenResponse as AxiosResponse<Token>).data;
+    console.dir(access_token)
+    console.dir(token_type)
+    console.dir(expires_in)
+
     const options = {
       method: "PUT",
       data: updateRequest,
+      headers: {
+        'Authorization': `Bearer ${access_token}`,
+        'Choreo-API-Key': `${configs.choreoApiKey}`
+      }
     };
     try {
       await performRequestWithRetry(`${apiUrl}/${id}`, options);

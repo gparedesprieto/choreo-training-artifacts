@@ -167,7 +167,7 @@ router.delete("/:reservationId", async (req: Request, res: Response) => {
 router.get('/token', async (req: Request, res: Response) => {
   try {
     const auth = await getClientCredentials("");
-    //const auth = process.env.CHOREO_HOTEL_RESERVATION_CONNECTION_CONSUMERKEY;
+    //const auth = process.env.CHOREO_HOTEL_RESERVATION_CONNECTION_CONSUMERKEY; // Si se puede leer los autogestionadoos desde backend
     res.json(auth); // { access_token, token_type, expires_in }
   } catch (err) {
     res.status(500).json({ error: 'Token retrieval failed', detail: err });

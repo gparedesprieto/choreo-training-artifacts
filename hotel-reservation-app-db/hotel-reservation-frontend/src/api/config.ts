@@ -2,7 +2,8 @@ declare global {
   interface Window {
     configs: {
       apiUrl: string;
-      serviceUrl: string;
+      serviceurl: string;
+      tokenUrl: string;
     };
   }
 }

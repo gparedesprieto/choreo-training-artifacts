@@ -110,6 +110,21 @@ router.get(
   }
 );
 
+// GET /api/reservations/users
+router.get(
+  "/users",
+  async (req: Request, res: Response<Reservation[] | {}>) => {
+    try {
+      const userId = 'demo';
+      const reservations = await getReservations(userId);
+      const resp = reservations.map((reservation) => reservation.reservation);
+      return res.json(resp);
+    } catch (error) {
+      res.status(500).json({ error: "Internal server error" });
+    }
+  }
+);
+
 // PUT /api/reservations/:reservationId
 router.put(
   "/:reservationId",

@@ -105,6 +105,19 @@ paths:
                 items:
                   "$ref": "#/components/schemas/Reservation"
       security: [] # No requiere autenticación
+  "/users":
+    get:
+      operationId: getUsersUseridx
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/Reservation"
+      security: [] # No requiere autenticación
   "/{reservationId}":
     put:
       operationId: putReservationid

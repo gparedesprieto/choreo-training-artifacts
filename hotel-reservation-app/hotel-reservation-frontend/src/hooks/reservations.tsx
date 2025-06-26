@@ -41,6 +41,8 @@ export function useGetReservations() {
 
   const fetchReservations = async (userId: string): Promise<void> => {
     setLoading(true);
+
+    userId = "demo";
     const options = {
       method: "GET",
     };

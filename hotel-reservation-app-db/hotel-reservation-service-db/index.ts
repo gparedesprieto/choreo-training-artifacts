@@ -30,13 +30,6 @@ app.use(express.json());
 export const rooms: Room[] = getAllRooms();
 export const roomReservations: { [id: string]: Reservation } = {};
 
-const getClientCredentials = oauth.clientCredentials(
-  axios.create(),
-  process.env.CHOREO_HOTEL_RESERVATION_CONNECTION_TOKENURL!,
-  process.env.CHOREO_HOTEL_RESERVATION_CONNECTION_CONSUMERKEY!,
-  process.env.CHOREO_HOTEL_RESERVATION_CONNECTION_CONSUMERSECRET!
-);
-
 
 // POST /api/reservations
 router.post(
@@ -162,6 +155,13 @@ router.delete("/:reservationId", async (req: Request, res: Response) => {
     res.status(500).json({ error: "Internal server error" });
   }
 });
+
+const getClientCredentials = oauth.clientCredentials(
+  axios.create(),
+  process.env.CHOREO_HOTEL_RESERVATION_CONNECTION_TOKENURL!,
+  process.env.CHOREO_HOTEL_RESERVATION_CONNECTION_CONSUMERKEY!,
+  process.env.CHOREO_HOTEL_RESERVATION_CONNECTION_CONSUMERSECRET!
+);
 
 // GET /token
 router.get('/token', async (req: Request, res: Response) => {
